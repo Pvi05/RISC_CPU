@@ -24,8 +24,8 @@ signal Data_Rom : rom ;
 
 --------------- BEGIN -----------------------------------------------------------------
 begin
--- rw='1' alors lecture
-	acces_rom:process(rst, clk, Adress)
+
+	acces_rom:process(rst, Adress, en)
 		begin
 		
 		if rst='1' then
@@ -196,7 +196,6 @@ begin
 
 
 		else
-			--if rising_edge(clk) then
 				if en='1'then
 					Data_out <= 
 						Data_Rom(to_integer(unsigned(Adress))) 
@@ -205,7 +204,6 @@ begin
 						& Data_Rom(to_integer(unsigned(Adress) + 3));
 				end if;
 
-			--end if;
 		end if;
 		
 	end process acces_rom;

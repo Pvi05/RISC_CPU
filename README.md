@@ -21,8 +21,8 @@ You can also find a proposition for Exponentiation by Squaring, but note it exce
 
 ## Trying simulation yourself
 
-**Intel's Quartus and Questa** are required to try the architecture yourself.
+**Intel's Quartus and Questa** are recommended to try the architecture yourself.
 
 After loading the files into Questa, you are free to launch waveform simulation of all components. **You may find ready-to-launch testbenches for the Decoder and ALU**.
 
-To test the entire CPU, it is recommended to use `wave.do` to preload relevant signals into waveform. At least a cycle with `rst` set to 1 is required to initialize memory. After that, the CPU will load instructions from the ROM as expected.
+To test the entire CPU, you may use `cpu_wave.do` to preload relevant signals into waveform. At least a cycle with `rst` set to 1 is required to initialize memory. After that, the CPU will load instructions from the ROM as expected.
