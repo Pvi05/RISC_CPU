@@ -16,7 +16,7 @@ An `assembly` folder contains the Python Assembler and Byte Code to VHDL convert
 
 
 You may also find [example codes](example/) to illustrate the CPU capabilities. 
-**Exponentiation by squaring** is one of the most well-known algorithm using function recursion. We took inspiration from the algorithm and proposed first a multiplication implementation using the same idea (**Russian Peasant Multiplication**).
+**Exponentiation by squaring** is one of the most well-known algorithm using function recursion. I took inspiration from the algorithm and proposed first a multiplication implementation using the same idea (**Russian Peasant Multiplication**).
 You can also find a proposition for Exponentiation by Squaring, but note it exceeds ROM size.
 
 ## Trying simulation yourself
