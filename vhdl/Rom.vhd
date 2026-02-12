@@ -1,0 +1,213 @@
+library ieee;
+
+use IEEE.STD_LOGIC_1164.ALL;
+Use ieee.numeric_std.all ;
+
+
+entity rom is
+	port(
+			en			:	in std_logic;
+			clk		:	in std_logic;
+			rst		:	in std_logic;
+			Adress	:	in std_logic_vector(7 downto 0);
+			Data_out:	out std_logic_vector(31 downto 0)
+			);
+end rom;
+
+architecture rom_a of rom is
+
+type rom is array(0 to 255) of std_logic_vector(7 downto 0);
+
+signal Data_Rom : rom ;
+
+
+
+--------------- BEGIN -----------------------------------------------------------------
+begin
+-- rw='1' alors lecture
+	acces_rom:process(rst, clk, Adress)
+		begin
+		
+		if rst='1' then
+                Data_Rom(0) <= "00100110"; 
+                Data_Rom(1) <= "10001100"; 
+                Data_Rom(2) <= "00000000"; 
+                Data_Rom(3) <= "00000000"; 
+                Data_Rom(4) <= "11101000"; 
+                Data_Rom(5) <= "00000000"; 
+                Data_Rom(6) <= "00001110"; 
+                Data_Rom(7) <= "00000000"; 
+                Data_Rom(8) <= "11101000"; 
+                Data_Rom(9) <= "00000001"; 
+                Data_Rom(10) <= "00001110"; 
+                Data_Rom(11) <= "00000000"; 
+                Data_Rom(12) <= "11101000"; 
+                Data_Rom(13) <= "00000010"; 
+                Data_Rom(14) <= "00001110"; 
+                Data_Rom(15) <= "00000000"; 
+                Data_Rom(16) <= "11101000"; 
+                Data_Rom(17) <= "00000011"; 
+                Data_Rom(18) <= "00001110"; 
+                Data_Rom(19) <= "00000000"; 
+                Data_Rom(20) <= "01001000"; 
+                Data_Rom(21) <= "00000000"; 
+                Data_Rom(22) <= "00001110"; 
+                Data_Rom(23) <= "00000111"; 
+                Data_Rom(24) <= "01001000"; 
+                Data_Rom(25) <= "00000001"; 
+                Data_Rom(26) <= "00001110"; 
+                Data_Rom(27) <= "00000110"; 
+                Data_Rom(28) <= "00100010"; 
+                Data_Rom(29) <= "00111000"; 
+                Data_Rom(30) <= "00000000"; 
+                Data_Rom(31) <= "00000001"; 
+                Data_Rom(32) <= "11101000"; 
+                Data_Rom(33) <= "00000001"; 
+                Data_Rom(34) <= "00001110"; 
+                Data_Rom(35) <= "00000000"; 
+                Data_Rom(36) <= "11101000"; 
+                Data_Rom(37) <= "00000000"; 
+                Data_Rom(38) <= "00001110"; 
+                Data_Rom(39) <= "00000000"; 
+                Data_Rom(40) <= "11101000"; 
+                Data_Rom(41) <= "00010000"; 
+                Data_Rom(42) <= "00001110"; 
+                Data_Rom(43) <= "00000000"; 
+                Data_Rom(44) <= "00100110"; 
+                Data_Rom(45) <= "00000100"; 
+                Data_Rom(46) <= "00000000"; 
+                Data_Rom(47) <= "00000000"; 
+                Data_Rom(48) <= "00001000"; 
+                Data_Rom(49) <= "00001110"; 
+                Data_Rom(50) <= "00001110"; 
+                Data_Rom(51) <= "00000010"; 
+                Data_Rom(52) <= "00100110"; 
+                Data_Rom(53) <= "01110100"; 
+                Data_Rom(54) <= "00000000"; 
+                Data_Rom(55) <= "00000000"; 
+                Data_Rom(56) <= "00101001"; 
+                Data_Rom(57) <= "01000100"; 
+                Data_Rom(58) <= "00000001"; 
+                Data_Rom(59) <= "00000001"; 
+                Data_Rom(60) <= "00001000"; 
+                Data_Rom(61) <= "00001101"; 
+                Data_Rom(62) <= "00000000"; 
+                Data_Rom(63) <= "00000000"; 
+                Data_Rom(64) <= "00100110"; 
+                Data_Rom(65) <= "01110100"; 
+                Data_Rom(66) <= "00000000"; 
+                Data_Rom(67) <= "00000000"; 
+                Data_Rom(68) <= "00001010"; 
+                Data_Rom(69) <= "00000010"; 
+                Data_Rom(70) <= "00000001"; 
+                Data_Rom(71) <= "00000001"; 
+                Data_Rom(72) <= "00001110"; 
+                Data_Rom(73) <= "00000011"; 
+                Data_Rom(74) <= "00000001"; 
+                Data_Rom(75) <= "00000001"; 
+                Data_Rom(76) <= "11101000"; 
+                Data_Rom(77) <= "00000000"; 
+                Data_Rom(78) <= "00001110"; 
+                Data_Rom(79) <= "00000000"; 
+                Data_Rom(80) <= "11101000"; 
+                Data_Rom(81) <= "00000011"; 
+                Data_Rom(82) <= "00001110"; 
+                Data_Rom(83) <= "00000000"; 
+                Data_Rom(84) <= "11101000"; 
+                Data_Rom(85) <= "00010000"; 
+                Data_Rom(86) <= "00001110"; 
+                Data_Rom(87) <= "00000000"; 
+                Data_Rom(88) <= "00100110"; 
+                Data_Rom(89) <= "00000100"; 
+                Data_Rom(90) <= "00000000"; 
+                Data_Rom(91) <= "00000000"; 
+                Data_Rom(92) <= "00001000"; 
+                Data_Rom(93) <= "00001110"; 
+                Data_Rom(94) <= "00001110"; 
+                Data_Rom(95) <= "00000010"; 
+                Data_Rom(96) <= "00001111"; 
+                Data_Rom(97) <= "00001101"; 
+                Data_Rom(98) <= "00001101"; 
+                Data_Rom(99) <= "00000001"; 
+                Data_Rom(100) <= "00101000"; 
+                Data_Rom(101) <= "01101100"; 
+                Data_Rom(102) <= "00000010"; 
+                Data_Rom(103) <= "00000001"; 
+                Data_Rom(104) <= "00100110"; 
+                Data_Rom(105) <= "01110100"; 
+                Data_Rom(106) <= "00000000"; 
+                Data_Rom(107) <= "00000000"; 
+                Data_Rom(108) <= "00000000"; 
+                Data_Rom(109) <= "00001101"; 
+                Data_Rom(110) <= "00001101"; 
+                Data_Rom(111) <= "00000000"; 
+                Data_Rom(112) <= "00100110"; 
+                Data_Rom(113) <= "01110100"; 
+                Data_Rom(114) <= "00000000"; 
+                Data_Rom(115) <= "00000000"; 
+                Data_Rom(116) <= "11001000"; 
+                Data_Rom(117) <= "00000011"; 
+                Data_Rom(118) <= "00001110"; 
+                Data_Rom(119) <= "00000001"; 
+                Data_Rom(120) <= "11001000"; 
+                Data_Rom(121) <= "00000010"; 
+                Data_Rom(122) <= "00001110"; 
+                Data_Rom(123) <= "00000001"; 
+                Data_Rom(124) <= "11001000"; 
+                Data_Rom(125) <= "00000001"; 
+                Data_Rom(126) <= "00001110"; 
+                Data_Rom(127) <= "00000001"; 
+                Data_Rom(128) <= "11001000"; 
+                Data_Rom(129) <= "00000000"; 
+                Data_Rom(130) <= "00001110"; 
+                Data_Rom(131) <= "00000001"; 
+                Data_Rom(132) <= "11001000"; 
+                Data_Rom(133) <= "00001111"; 
+                Data_Rom(134) <= "00001110"; 
+                Data_Rom(135) <= "00000001"; 
+                Data_Rom(136) <= "10100110"; 
+                Data_Rom(137) <= "00001111"; 
+                Data_Rom(138) <= "00000000"; 
+                Data_Rom(139) <= "00000000"; 
+                Data_Rom(140) <= "00011000"; 
+                Data_Rom(141) <= "00000000"; 
+                Data_Rom(142) <= "00001101"; 
+                Data_Rom(143) <= "00000000"; 
+                Data_Rom(144) <= "00011000"; 
+                Data_Rom(145) <= "00000001"; 
+                Data_Rom(146) <= "00010011"; 
+                Data_Rom(147) <= "00000000"; 
+                Data_Rom(148) <= "11101000"; 
+                Data_Rom(149) <= "00000000"; 
+                Data_Rom(150) <= "00001110"; 
+                Data_Rom(151) <= "00000000"; 
+                Data_Rom(152) <= "11101000"; 
+                Data_Rom(153) <= "00000001"; 
+                Data_Rom(154) <= "00001110"; 
+                Data_Rom(155) <= "00000000"; 
+                Data_Rom(156) <= "11101000"; 
+                Data_Rom(157) <= "00010000"; 
+                Data_Rom(158) <= "00001110"; 
+                Data_Rom(159) <= "00000000"; 
+                Data_Rom(160) <= "00100110"; 
+                Data_Rom(161) <= "00000100"; 
+                Data_Rom(162) <= "00000000"; 
+                Data_Rom(163) <= "00000000"; 
+
+
+		else
+			--if rising_edge(clk) then
+				if en='1'then
+					Data_out <= 
+						Data_Rom(to_integer(unsigned(Adress))) 
+						& Data_Rom(to_integer(unsigned(Adress) + 1)) 
+						& Data_Rom(to_integer(unsigned(Adress) + 2)) 
+						& Data_Rom(to_integer(unsigned(Adress) + 3));
+				end if;
+
+			--end if;
+		end if;
+		
+	end process acces_rom;
+
+end rom_a;

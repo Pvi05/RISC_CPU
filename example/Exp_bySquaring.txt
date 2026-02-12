@@ -1,0 +1,82 @@
+J main
+
+LABEL mul
+PUSH R0
+PUSH R1
+PUSH R2
+PUSH R3
+LOAD R0 sp 7
+LOAD R1 sp 6
+JGE mul_correct_order R0 R1
+PUSH R1
+PUSH R0
+CALL mul
+ADD sp sp 2
+J mul_ret
+LABEL mul_correct_order
+JNE mul_not_base_case R1 1
+ADD R13 R0 0
+J mul_ret
+LABEL mul_not_base_case
+AND R2 R1 0b00000001
+LSR R3 R1 1
+PUSH R0
+PUSH R3
+CALL mul
+ADD sp sp 2
+LSL R13 R13 1
+JEQ mul_odd R2 1
+J mul_ret
+LABEL mul_odd
+ADD R13 R13 R0
+J mul_ret
+LABEL mul_ret
+POP R3
+POP R2
+POP R1
+POP R0
+RET
+
+LABEL exp
+PUSH R0
+PUSH R1
+PUSH R2
+PUSH R3
+LOAD R0 sp 7
+LOAD R1 sp 6
+JNE exp_not_base_case R1 0
+ADD R13 R0 0
+J exp_ret
+LABEL exp_not_base_case
+AND R2 R1 0b00000001
+LSR R3 R1 1
+PUSH R0
+PUSH R3
+CALL exp
+ADD sp sp 2
+ADD R12 R13 0
+PUSH R13
+PUSH R13
+CALL mul
+ADD sp sp 2
+JEQ exp_odd R2 1
+J exp_ret
+LABEL exp_odd
+PUSH R13
+PUSH R12
+CALL mul
+ADD sp sp 2
+J exp_ret
+LABEL exp_ret
+POP R3
+POP R2
+POP R1
+POP R0
+RET
+
+LABEL main
+ADD R0 3 0
+ADD R1 4 0
+PUSH R0
+PUSH R1
+CALL exp
