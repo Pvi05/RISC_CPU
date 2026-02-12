@@ -25,7 +25,6 @@ signal Data_Ram : ram ;
 
 --------------- BEGIN -----------------------------------------------------------------
 begin
--- rw='1' alors lecture
 	acces_ram:process(rst, clk)
 		begin
 		
